@@ -4,34 +4,83 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Café com Gato</title>
-    <link rel='stylesheet' href='main.css'>
+    <link rel="icon" href="/assets/icons/fav.ico" type="image/x-icon">
+    <link rel='stylesheet' href='/css/style.css'>
+    <link rel="stylesheet" href="/css/slideshow.css">
+    <script src='/js/main.js' defer></script>
+    <script src='/js/slideshow.js' defer></script>
 </head>
 <body>
     <header>
-        <h1></h1>
-        <nav>
+        <h1>Café com Gato</h1>
+        <nav class="navbar">
             <ul>
-                <li><a href='/index.html'>Home</a></li>
-                <li><a href='/pages/produtos.html'>Produtos</a></li>
+                <li><a href='/index.html' class="active">Início</a></li>
+                <li><a href='/pages/nossoCardapio.html'>Nosso Cardápio</a></li>
+                <li><a href='/pages/nossosGatinhos.html'>Nossos Gatinhos</a></li>
+                <li><a href='/pages/sobreNos.html'>Sobre Nós</a></li>
                 <li><a href='/pages/contato.html'>Contato</a></li>
             </ul>
-    </nav>
+        </nav>
     </header>
     <main>
-        <div class="slideshow">
-            <img class="slide" src="photo1.jpg" alt="Mountain view">
-            <img class="slide" src="photo2.jpg" alt="Forest trail">
-            <img class="slide" src="photo3.jpg" alt="Lake at sunset">
+        <section class="slideshow">
+            <div class="slides">
+                <a href="/index.html" class="slide active">
+                    <img src="/assets/images/cafeteria-com-gatos-slideshow01.jpg" alt="Cafeteria com gatos, cafés e sua identidade visual">
+                </a>
+                <a href="/pages/nossoCardapio.html" class="slide">
+                    <img src="/assets/images/cafeteria-com-gatos-slideshow02.jpg" alt="Conheça nosso cardápio">
+                </a>
+                <a href="/pages/nossosGatinhos.html" class="slide">
+                    <img src="/assets/images/cafeteria-com-gatos-slideshow03.jpg" alt="Conheça nossos gatinhos">
+                </a>
+            </div>
 
             <button type="button" class="prev" onclick="changeSlide(-1)">&#10094;</button>
             <button type="button" class="next" onclick="changeSlide(1)">&#10095;</button>
-        </div>
+
+            <div class="slideshowDots">
+                <span class="slideshowDot active" onclick="currentSlide(0)"></span>
+                <span class="slideshowDot" onclick="currentSlide(1)"></span>
+                <span class="slideshowDot" onclick="currentSlide(2)"></span>
+            </div>
+
+        </section>
 
         <h2>Bem-vindo à nossa loja!</h2>
         <p>Explore nossos produtos e entre em contato conosco para mais informações.</p>
     </main>
-    <footer>
-        <p>&copy; 2024 LOJA GENERICA. Todos os direitos reservados.</p>
+    <footer class="footer">
+        
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Café com Gatos</h2>
+                <p>
+                    Um lugar onde bons cafés e boas companhias se encontram.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="/index.html">Início</a></li>
+                    <li><a href="/pages/nossoCardapio.html">Nosso Cardápio</a></li>
+                    <li><a href="/pages/nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="/pages/sobreNos.html">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h3></h3>
+                <p> 🕒 Segunda a sábado: 10h às 20h</p>
+                <p> 📍 Rua dos Bigodes, 123 - Gatolândia</p>
+                <p> 📷 @cafecomgatos</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Café com Gatos. Todos os direitos reservados.</p>
+            <p>Feito com ☕ e muito amor pelos gatinhos.</p>
+        </div>
     </footer>
 </body>
 </html>
