@@ -3,14 +3,21 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Nosso Cardápio</title>
+    <meta name='description' content='Conheça o cardápio do Café com Gatos. Cafés, bebidas, doces e salgados.'>
+
+    <title>Nosso Cardápio | Café com Gatos</title>
+
     <link rel="icon" href="/assets/icons/fav.ico" type="image/x-icon">
+
     <link rel='stylesheet' href='/css/style.css'>
+    <link rel='stylesheet' href='/css/cardapio.css'>
+    
     <script src='/js/main.js' defer></script>
+    <script src="/js/cardapio.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Café com Gato</h1>
+        <h1>Café com Gatos</h1>
         <nav class="navbar">
             <ul>
                 <li><a href='/index.html'>Início</a></li>
@@ -21,9 +28,61 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <h2>Bem-vindo à nossa loja!</h2>
-        <p>Explore nossos produtos e entre em contato conosco para mais informações.</p>
+    <main class="cardapio">
+        <section class="cardapio-banner">
+            <h2>Nosso Cardápio</h2>
+            <p>Sabores especiais preparados com carinho, acompanhados de muito amor pelos gatinhos.</p>
+        </section>
+        <section class="produtos-section">
+            <div class="header-section">
+                <h2>Explore nossos sabores</h2>
+                <p> Escolha uma categoria e descubra nossas delícias.</p>
+            </div>
+            <div class="cardapio-container">
+                <nav class="categorias" aria-label="Categorias do cardápio">
+                    <a href="#cafes" class="categoria-link active">Cafés</a>
+                    <a href="#bebidas" class="categoria-link">Bebidas Geladas</a>
+                    <a href="#salgados" class="categoria-link">Salgados</a>
+                    <a href="#doces" class="categoria-link">Doces</a>
+                </nav>
+                <div class="produtos-container">
+                    <section class="categoria-produtos" id="cafes" aria-labelledby="titulo-cafes">
+                        <h2 id="titulo-cafes">Cafés</h2>
+                        <div class="produtos-grid" id="cafes-grid"></div>
+                    </section>
+                    <section class="categoria-produtos" id="bebidas" aria-labelledby="titulo-bebidas">
+                        <h2 id="titulo-bebidas">Bebidas Geladas</h2>
+                        <div class="produtos-grid" id="bebidas-grid"></div>
+                    </section>
+                    <section class="categoria-produtos" id="salgados" aria-labelledby="titulo-salgados">
+                        <h2 id="titulo-salgados">Salgados</h2>
+                        <div class="produtos-grid" id="salgados-grid"></div>
+                    </section>
+                    <section class="categoria-produtos" id="doces" aria-labelledby="titulo-doces">
+                        <h2 id="titulo-doces">Doces</h2>
+                        <div class="produtos-grid" id="doces-grid"></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <button type="button" class="btn-carrinho" id="btn-carrinho" aria-label="Abrir carrinho" aria-controls="carrinho" aria-expanded="false">
+            <span>Meu Carrinho</span>
+            <span id="carrinho-badge">R$ 0,00</span>
+        </button>
+        <aside class="carrinho" id="carrinho" aria-label="Meu carrinho" hidden>
+            <div class="carrinho-header">
+                <h2>Meu Carrinho 🛒</h2>
+                <span id="carrinho-quantidade">0</span>
+                <button type="button" class="btn-fechar-carrinho" id="btn-fechar-carrinho" aria-label="Fechar carrinho"></button>
+            </div>
+            <div id="carrinho-itens" aria-live="polite">
+                <p>Seu carrinho está vazio.</p>
+            </div>
+            <div class="carrinho-total">
+                <strong>Total:</strong>
+                <span id="carrinho-total">R$ 0,00</span>
+            </div>
+        </aside>
     </main>
     <footer class="footer">
         
@@ -52,7 +111,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Café com Gatos. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Café com Gatos. Todos os direitos reservados.</p>
             <p>Feito com ☕ e muito amor pelos gatinhos.</p>
         </div>
     </footer>

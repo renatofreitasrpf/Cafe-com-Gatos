@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .navbar ul{
     display: flex;
     justify-content: center;
