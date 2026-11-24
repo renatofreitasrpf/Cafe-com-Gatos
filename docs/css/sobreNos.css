@@ -1,0 +1,391 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #faf7f2;
+    --cor-branco: #fff;
+    --cor-principal: #76513f;
+    --cor-principal-escura: #51382d;
+    --cor-texto: #60483c;
+    --cor-texto-secundario: #806c60;
+    --cor-borda: #d8c5b8;
+}
+
+.sobre-nos {
+    background-color: var(--cor-fundo);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.sobre-banner {
+    background: linear-gradient(rgba(48, 32, 25, 0.65), rgba(48, 32, 25, 0.65)), url('../assets/images/cafeteria-com-gatos-slideshow02.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    color: var(--cor-branco);
+}
+
+.sobre-banner h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 15px;
+}
+
+.sobre-banner p{
+    max-width: 650px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.subtitulo {
+    display: inline-block;
+
+    color: var(--cor-principal);
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.historia-section {
+    padding: 80px 25px;
+}
+
+.historia-container {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 56px;
+}
+
+.historia-texto h2 {
+    color: var(--cor-principal-escura);
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 25px;
+}
+
+.historia-texto p {
+    color: var(--cor-texto-secundario);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.historia-imagem {
+    width: 100%;
+    height: 380px;
+
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.historia-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.historia-imagem:hover img {
+    transform: scale(1.05);
+}
+
+.missao-section {
+    background-color: #eee3d9;
+    padding: 75px 25px;
+
+    text-align: center;
+}
+
+.missao-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.missao-container h2 {
+    color: var(--cor-principal-escura);
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    margin-bottom: 20px;
+}
+
+.missao-container p {
+    color: var(--cor-texto);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.valores-section {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 80px 25px;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.header-section h2 {
+    color: var(--cor-principal-escura);
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.header-section p {
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.valor-card {
+    background-color: var(--cor-branco);
+
+    padding: 30px 22px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.valor-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 9px 22px rgba(0, 0, 0, 0.11);
+}
+
+.valor-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    background-color: #f5e8e2;
+    border-radius: 50%;
+
+    font-size: 1.9rem;
+}
+
+.valor-card h3 {
+    color: var(--cor-principal-escura);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+}
+
+.valor-card p {
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.convite-section {
+    background:
+        linear-gradient(
+            rgba(48, 32, 25, 0.78),
+            rgba(48, 32, 25, 0.78)
+        ),
+        url('../assets/images/cafeteria-com-gatos-slideshow02.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 75px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    color: var(--cor-branco);
+}
+
+.convite-section h2 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    margin-bottom: 15px;
+}
+
+.convite-section p {
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.btn-convite {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background-color: var(--cor-branco);
+    color: var(--cor-principal-escura);
+
+    border: 2px solid var(--cor-branco);
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.btn-convite:hover {
+    background-color: transparent;
+    color: var(--cor-branco);
+
+    transform: translateY(-4px);
+}
+
+.btn-convite:focus-visible {
+    outline: 3px solid #d8b69e;
+    outline-offset: 4px;
+}
+
+.revelar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.js-animacoes .revelar {
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.js-animacoes .revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 1000px) {
+
+    .historia-container {
+        gap: 35px;
+    }
+
+    .valores-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .sobre-banner {
+        min-height: 260px;
+    }
+
+    .historia-section {
+        padding: 55px 20px;
+    }
+
+    .historia-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .historia-imagem {
+        height: 300px;
+    }
+
+    .missao-section {
+        padding: 55px 20px;
+    }
+
+    .valores-section {
+        padding: 55px 20px;
+    }
+
+    .header-section {
+        margin-bottom: 30px;
+    }
+
+    .convite-section {
+        padding: 60px 20px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .valor-card {
+        padding: 25px 20px;
+    }
+
+    .historia-imagem {
+        height: 240px;
+    }
+
+    .sobre-banner p {
+        font-size: 0.95rem;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .js-animacoes .revelar {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .historia-imagem img,
+    .valor-card,
+    .btn-convite {
+        transition: none;
+    }
+
+    .historia-imagem:hover img,
+    .valor-card:hover,
+    .btn-convite:hover {
+        transform: none;
+    }
+
+}
