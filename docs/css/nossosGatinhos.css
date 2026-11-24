@@ -1,0 +1,380 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #faf7f2;
+    --cor-branco: #fff;
+    --cor-principal: #76513f;
+    --cor-principal-escura: #51382d;
+    --cor-texto: #60483c;
+    --cor-texto-secundario: #806c60;
+    --cor-borda: #d8c5b8;
+}
+
+.nossos-gatinhos {
+    background-color: var(--cor-fundo);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.gatinhos-banner {
+    background:
+    linear-gradient(rgba(48, 32, 25, 0.65),rgba(48, 32, 25, 0.65)), url('../assets/images/cafeteria-com-gatos-slideshow02.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    color: var(--cor-branco);
+}
+
+.gatinhos-banner h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 15px;
+}
+
+.gatinhos-banner p {
+    max-width: 650px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.subtitulo {
+    display: inline-block;
+
+    color: var(--cor-principal);
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.gatinhos-section {
+    max-width: 1250px;
+    margin: auto;
+
+    padding: 80px 25px;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.header-section h2 {
+    color: var(--cor-principal-escura);
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    margin-bottom: 12px;
+}
+
+.header-section p {
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+}
+
+.gatinhos-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+.gatinho-card {
+    background-color: var(--cor-branco);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gatinho-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.gatinho-imagem {
+    width: 100%;
+    height: 260px;
+
+    overflow: hidden;
+}
+
+.gatinho-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.gatinho-card:hover .gatinho-imagem img {
+    transform: scale(1.07);
+}
+
+.gatinho-info {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.gatinho-info h3 {
+    color: var(--cor-principal-escura);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.gatinho-personalidade {
+    display: inline-block;
+
+    background-color: #f5e8e2;
+    color: var(--cor-principal);
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.gatinho-info p {
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.cuidados-section {
+    background-color: #eee3d9;
+    padding: 80px 25px;
+}
+
+.cuidados-container {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 55px;
+}
+
+.cuidados-texto h2 {
+    color: var(--cor-principal-escura);
+
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+
+    margin-bottom: 25px;
+}
+
+.cuidados-texto p {
+    color: var(--cor-texto-secundario);
+
+    line-height: 1.8;
+    font-size: 1rem;
+
+    margin-bottom: 18px;
+}
+
+.cuidados-imagem {
+    width: 100%;
+    height: 380px;
+
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.cuidados-imagem img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.cuidados-imagem:hover img {
+    transform: scale(1.05);
+}
+
+.convite-gatinhos {
+    background:
+    linear-gradient(rgba(48, 32, 25, 0.78), rgba(48, 32, 25, 0.78)), url('../assets/images/cafeteria-com-gatos-slideshow02.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 75px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    color: var(--cor-branco);
+}
+
+.convite-gatinhos h2 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    margin-bottom: 15px;
+}
+
+.convite-gatinhos p {
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.btn-convite {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background-color: var(--cor-branco);
+    color: var(--cor-principal-escura);
+
+    border: 2px solid var(--cor-branco);
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.btn-convite:hover {
+    background-color: transparent;
+    color: var(--cor-branco);
+
+    transform: translateY(-4px);
+}
+
+.btn-convite:focus-visible {
+    outline: 3px solid #d8b69e;
+    outline-offset: 4px;
+}
+
+@media (max-width: 1000px) {
+
+    .gatinhos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cuidados-container {
+        gap: 35px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .gatinhos-banner {
+        min-height: 260px;
+    }
+
+    .gatinhos-section {
+        padding: 55px 20px;
+    }
+
+    .header-section {
+        margin-bottom: 30px;
+    }
+
+    .gatinhos-grid {
+        gap: 20px;
+    }
+
+    .gatinho-imagem {
+        height: 230px;
+    }
+
+    .cuidados-section {
+        padding: 55px 20px;
+    }
+
+    .cuidados-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cuidados-imagem {
+        height: 300px;
+    }
+
+    .convite-gatinhos {
+        padding: 60px 20px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .gatinhos-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .gatinho-imagem {
+        height: 260px;
+    }
+
+    .gatinho-info {
+        padding: 25px 20px;
+    }
+
+    .cuidados-imagem {
+        height: 240px;
+    }
+
+    .gatinhos-banner p {
+        font-size: 0.95rem;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gatinho-card,
+    .gatinho-imagem img,
+    .cuidados-imagem img,
+    .btn-convite {
+        transition: none;
+    }
+
+    .gatinho-card:hover,
+    .gatinho-card:hover .gatinho-imagem img,
+    .cuidados-imagem:hover img,
+    .btn-convite:hover {
+        transform: none;
+    }
+
+}
