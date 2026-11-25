@@ -1,132 +1,151 @@
 <!DOCTYPE html>
-<html lang='pt-BR'>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta name="description" content="Conheça a história do Café com Gatos, um espaço especial que une cafés deliciosos e o carinho dos nossos gatinhos.">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A história do Café com Gatos: a máquina que veio antes do balcão e os quatro gatos que dividem a casa em Gatolândia.">
+    <meta name="theme-color" content="#51382d">
+
     <title>Sobre Nós | Café com Gatos</title>
 
     <link rel="icon" href="../assets/icons/fav.ico" type="image/x-icon">
 
-    <link rel='stylesheet' href='../css/style.css'>
-    <link rel="stylesheet" href="../css/sobreNos.css">
-    
-    <script src='../js/main.js' defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Inter:wght@400..600&amp;display=swap">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sobre-nos.css">
+
 </head>
 <body>
-    <header>
-        <h1>Café com Gato</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a href='../index.html'>Início</a></li>
-                <li><a href='nossoCardapio.html'>Nosso Cardápio</a></li>
-                <li><a href='nossosGatinhos.html'>Nossos Gatinhos</a></li>
-                <li><a href='sobreNos.html' class="active">Sobre Nós</a></li>
-                <li><a href='contato.html'>Contato</a></li>
-            </ul>
-        </nav>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <p class="site-brand">
+                <a href="../index.html">Café com <span>Gatos</span></a>
+            </p>
+            <nav class="site-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="nossoCardapio.html">Nosso Cardápio</a></li>
+                    <li><a href="nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="adote.html">Adote</a></li>
+                    <li><a href="sobreNos.html" aria-current="page">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main class="sobre-nos">
 
-        <section class="sobre-banner">
-            <h2>Sobre Nós</h2>
-            <p>Muito mais que uma cafeteria, um lugar onde o carinho pelos gatos e a paixão pelo café se encontram.</p>
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero sobre-hero" aria-labelledby="titulo-pagina">
+            <div class="container">
+                <p class="eyebrow">Nossa história</p>
+                <h1 id="titulo-pagina">Sobre Nós</h1>
+                <p>Duas coisas vieram antes do balcão: uma máquina de café e quatro gatos sem lugar certo para dormir.</p>
+            </div>
         </section>
 
-        <section class="historia-section">
-            <div class="historia-container">
+        <section class="historia-section" aria-labelledby="titulo-historia">
+            <div class="container historia-container">
                 <div class="historia-texto">
-                    <span class="subtitulo">Nossa história</span>
-                    <h2>Como tudo começou</h2>
-                    <p>O Café com Gatos nasceu da combinação de duas grandes paixões: o amor por café e o carinho pelos animais.</p>
-                    <p>Criamos um espaço onde as pessoas podem aproveitar bebidas deliciosas, experimentar sabores especiais e compartilhar momentos únicos na companhia de gatinhos muito especiais.</p>
-                    <p>Acreditamos que pequenos momentos podem transformar o dia de alguém, principalmente quando acompanhados de uma boa xícara de café e um ronronar de felicidade.</p>
+                    <p class="eyebrow">Como tudo começou</p>
+                    <h2 id="titulo-historia">Duas paixões, um só endereço</h2>
+                    <p>A ideia era simples: um café honesto e gatos por perto o suficiente para atrapalhar a leitura.</p>
+                    <p>Hoje a casa tem balcão comprido e cafés extraídos na hora. A regra ninguém precisou escrever: quem dorme no canto do sol fica.</p>
+                    <p>O resto a gente aprendeu com eles: comer devagar e não sair de perto de quem está com o colo quente.</p>
                 </div>
+
                 <div class="historia-imagem">
-                    <img src="../assets/images/sobre-nos/historia.jpg" alt="Ambiente aconchegante do Café com Gatos">
+                    <img src="../assets/images/sobre-nos/historia.jpg" alt="Gato laranja dormindo na mesa, ao lado de uma xícara" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
 
-        <section class="missao-section">
-            <div class="missao-container">
-                <span class="subtitulo">Nosso propósito</span>
-                <h2>Mais que café, uma experiência especial</h2>
-                <p>Nossa missão é proporcionar momentos de tranquilidade, alegria e conexão, oferecendo um ambiente acolhedor onde pessoas e gatos possam conviver de maneira respeitosa e harmoniosa.</p>
+        <section class="missao-section" aria-labelledby="titulo-missao">
+            <div class="container missao-container">
+                <p class="eyebrow">Nosso propósito</p>
+                <h2 id="titulo-missao">Gato por perto e ninguém com pressa</h2>
+                <p>A regra da casa é curta: respeitar o tempo do gato e o do vizinho de mesa. O resto é servir café bem tirado e não apressar ninguém.</p>
             </div>
         </section>
 
-        <section class="valores-section">
-            <div class="header-section">
-                <span class="subtitulo">O que nos inspira</span>
-                <h2>Nossos valores</h2>
-                <p>Tudo o que fazemos é guiado pelo carinho, respeito e dedicação.</p>
-            </div>
+        <section class="valores-section" aria-labelledby="titulo-valores">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">O que nos inspira</p>
+                    <h2 id="titulo-valores">Nossos valores</h2>
+                    <p>Quatro coisas que a gente combinou antes de abrir a porta.</p>
+                </div>
 
-            <div class="valores-grid">
-                <article class="valor-card">
-                    <span class="valor-icon">🐱</span>
-                    <h3>Amor pelos animais</h3>
-                    <p>O bem-estar dos nossos gatinhos está sempre em primeiro lugar.</p>
-                </article>
+                <div class="valores-grid">
+                    <article class="card valor-card">
+                        <span class="valor-icone" aria-hidden="true">🐱</span>
+                        <h3>Amor pelos animais</h3>
+                        <p>O bem-estar dos nossos gatinhos está sempre em primeiro lugar.</p>
+                    </article>
 
-                <article class="valor-card">
-                    <span class="valor-icon">☕</span>
-                    <h3>Qualidade</h3>
-                    <p>Trabalhamos para oferecer cafés, bebidas e comidas preparados com dedicação.</p>
-                </article>
+                    <article class="card valor-card">
+                        <span class="valor-icone" aria-hidden="true">☕</span>
+                        <h3>Qualidade</h3>
+                        <p>Café tirado na hora e comida saindo da cozinha, sem atalho.</p>
+                    </article>
 
-                <article class="valor-card">
-                    <span class="valor-icon">❤️</span>
-                    <h3>Acolhimento</h3>
-                    <p>Queremos que todos se sintam em casa, cercados de carinho e tranquilidade.</p>
-                </article>
+                    <article class="card valor-card">
+                        <span class="valor-icone" aria-hidden="true">❤️</span>
+                        <h3>Acolhimento</h3>
+                        <p>Se o gato dormiu no seu colo, ninguém apressa a saída.</p>
+                    </article>
 
-                <article class="valor-card">
-                    <span class="valor-icon">🐾</span>
-                    <h3>Respeito e cuidado</h3>
-                    <p>Valorizamos a convivência responsável e respeitamos o espaço de cada animal.</p>
-                </article>
+                    <article class="card valor-card">
+                        <span class="valor-icone" aria-hidden="true">🐾</span>
+                        <h3>Respeito e cuidado</h3>
+                        <p>O gato decide se quer colo, e o visitante respeita a resposta.</p>
+                    </article>
+                </div>
             </div>
         </section>
-        
-        <section class="convite-section">
-            <h2>Venha fazer parte dessa experiência!</h2>
-            <p>Estamos esperando por você, com um café fresquinho e muitos ronronares.</p>
-            <a href="nossosGatinhos.html" class="btn-convite">Conheça nossos gatinhos</a>
-        </section>
 
+        <section class="callout sobre-callout">
+            <h2>Antes de ir embora, cumprimente quem mora aqui</h2>
+            <p>Os quatro gatos ficam soltos pela casa. Alguns chegam perto, outros só observam do alto — os dois jeitos valem como boa-vindas.</p>
+            <a href="nossosGatinhos.html" class="btn btn--claro">Conheça nossos gatinhos</a>
+        </section>
     </main>
-    <footer class="footer">
-        
-        <div class="footer-container">
+
+    <footer class="site-footer">
+        <div class="container footer-container">
             <div class="footer-brand">
                 <h2>Café com Gatos</h2>
-                <p>
-                    Um lugar onde bons cafés e boas companhias se encontram.
-                </p>
+                <p>Cafeteria com gatos em Gatolândia.</p>
             </div>
-            <div class="footer-links">
+
+            <nav class="footer-links" aria-label="Menu do rodapé">
                 <h3>Menu</h3>
                 <ul>
                     <li><a href="../index.html">Início</a></li>
                     <li><a href="nossoCardapio.html">Nosso Cardápio</a></li>
                     <li><a href="nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="adote.html">Adote</a></li>
                     <li><a href="sobreNos.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
                 </ul>
-            </div>
+            </nav>
+
             <div class="footer-info">
                 <h3>Informações</h3>
-                <p> 🕒 Segunda a sábado: 10h às 20h</p>
-                <p> 📍 Rua dos Bigodes, 123 - Gatolândia</p>
-                <p> 📷 @cafecomgatos</p>
+                <p><span class="footer-info-label">Horário</span>Segunda a sábado, 10h às 20h</p>
+                <p><span class="footer-info-label">Endereço</span>Rua dos Bigodes, 123 — Gatolândia</p>
+                <p>
+                    <span class="footer-info-label">Instagram</span>
+                    <a href="https://instagram.com/cafecomgatos" target="_blank" rel="noopener noreferrer">@cafecomgatos</a>
+                </p>
             </div>
         </div>
-        <div class="footer-bottom">
+
+        <div class="container footer-bottom">
             <p>&copy; 2026 Café com Gatos. Todos os direitos reservados.</p>
-            <p>Feito com ☕ e muito amor pelos gatinhos.</p>
+            <p>Feito com café e um gato no colo.</p>
         </div>
     </footer>
 </body>

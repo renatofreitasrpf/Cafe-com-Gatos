@@ -1,108 +1,681 @@
-*{
+/* cores, tipografia e espacamentos que aparecem em mais de uma pagina */
+/* dois marrons e dois cremes viraram um de cada: a diferenca no olho era de 2 a 4 em Delta E */
+
+:root {
+    --fundo: #faf7f2;
+    --superficie: #ffffff;
+    --superficie-alt: #f3ebe3;
+    --marrom: #76513f;
+    --marrom-escuro: #51382d;
+    --marrom-claro: #c18c67;
+    --texto-suave: #7d6759;
+    --borda: #e2d3c6;
+
+    --fonte-titulo: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --fonte-texto: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+
+    /* o --esp-1 saiu: era usado so no logo e nos links do menu, virou 0.25rem na regra */
+    --esp-2: 0.5rem;
+    --esp-3: 0.75rem;
+    --esp-4: 1rem;
+    --esp-5: 1.5rem;
+    --esp-6: 2rem;
+    --esp-7: 3rem;
+    --esp-8: 4rem;
+    --esp-9: 5rem;
+
+    --raio: 12px;
+    --raio-grande: 18px;
+    --pill: 999px;
+    --sombra-card: 0 4px 16px rgba(81, 56, 45, 0.07);
+    --sombra-hover: 0 14px 32px rgba(81, 56, 45, 0.14);
+    --transicao: 200ms ease;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
-.navbar ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
 
-    list-style: none;
-    padding: 15px;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
+    background-color: var(--fundo);
+    color: var(--marrom-escuro);
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-.navbar ul li a{
-    text-decoration: none;
-    color: #49352C;
-    position: relative;
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0 0 var(--esp-3);
+    color: var(--marrom-escuro);
+    font-family: var(--fonte-titulo);
     font-weight: 600;
-    transition: color 0.3s ease;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
 }
 
-.navbar ul li a:hover{
-    color: #C18B5D;
+p {
+    margin: 0 0 var(--esp-4);
 }
 
-.navbar ul li a.active{
-    color: #C18B5D;
-    border-bottom: 2px solid #C18B5D;
-    padding-bottom: 5px;
+p:last-child {
+    margin-bottom: 0;
 }
 
-.navbar a::after{
-    content: '';
-    position: absolute;
+a { color: inherit; }
 
-    width: 0;
-    height: 2px;
-    
-    left: 0;
-    bottom: 0;
-    
-    background-color: #C18B5D;
-    
-    transition: width 0.3s ease;
-}
-
-.navbar a.active::after{
-    width: 100%;
-}
-
-.navbar a:hover::after{
-    width: 100%;
-}
-
-.navbar ul:hover a.active:not(:hover)::after{
-    width: 0;
-}
-
-.footer{
-    background-color: #49352C;
-    color: #F5EBDD;
-    padding: 50px 8% 20px;
-}
-
-.footer-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    padding-bottom: 30px;
-}
-
-.footer h2,
-.footer h3{
-    margin-bottom: 15px;
-}
-
-.footerp p,
-.footer a{
-    margin-bottom: 10px;
-}
-
-.footer ul{
-    list-style: none;
+ul,
+ol {
+    margin: 0;
     padding: 0;
+    list-style: none;
 }
 
-.footer a{
+:focus-visible {
+    outline: 3px solid var(--marrom-claro);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+.container {
+    width: min(100% - 2.5rem, 1200px);
+    margin-inline: auto;
+}
+
+/* fica acima da tela ate alguem chegar nele pelo Tab */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--esp-4);
+    z-index: 999; /* acima do header, que usa 100 */
+    padding: var(--esp-3) var(--esp-4);
+    background-color: var(--marrom-escuro);
+    color: #fff;
+    border-radius: var(--raio);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: top var(--transicao);
 }
 
-.footer a:hover{
-    color: #D6AA83;
+.skip-link:focus { top: var(--esp-3); }
+
+/* header */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--borda);
+    backdrop-filter: blur(8px);
 }
 
-.footer-bottom{
-    border-top: 1px solid #806957;
-    padding-top: 20px;
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--esp-5);
+    padding-block: var(--esp-4);
+}
+
+.site-brand {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+}
+
+.site-brand a {
+    display: inline-block;
+    padding-block: 0.25rem;
+    color: var(--marrom-escuro);
+    text-decoration: none;
+    transition: color var(--transicao);
+}
+
+.site-brand a:hover {
+    color: var(--marrom);
+}
+
+.site-brand span {
+    color: var(--marrom-claro);
+}
+
+.site-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--esp-5);
+}
+
+.site-nav a {
+    position: relative;
+    display: inline-block;
+    padding-block: 0.25rem;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transicao);
+}
+
+.site-nav a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    border-radius: var(--pill);
+    background-color: var(--marrom);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transicao);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: var(--marrom-escuro);
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after,
+.site-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.site-nav a[aria-current="page"] {
+    color: var(--marrom-escuro);
+    font-weight: 600;
+}
+
+/* aqui o header vira duas linhas: grudado, ocuparia tela demais */
+@media (max-width: 1000px) {
+    .site-header {
+        position: static;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        gap: var(--esp-3);
+    }
+
+    .site-nav ul {
+        justify-content: center;
+        gap: var(--esp-2) var(--esp-5);
+    }
+}
+
+@media (max-width: 420px) {
+    .site-brand {
+        font-size: 1.35rem;
+    }
+
+    .site-nav ul {
+        gap: var(--esp-2) var(--esp-4);
+    }
+
+    .site-nav a {
+        font-size: 0.88rem;
+    }
+}
+
+.section-header {
+    max-width: 640px;
+    margin: 0 auto var(--esp-7);
     text-align: center;
 }
 
-@media (max-width: 768px){
-    .footer-container{
+.section-header h2 {
+    margin-bottom: var(--esp-3);
+    font-size: clamp(1.65rem, 3.4vw, 2.25rem);
+}
+
+.section-header p {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin: 0 0 var(--esp-3);
+    color: var(--marrom);
+    font-family: var(--fonte-texto);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.page-hero {
+    position: relative;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+    min-height: clamp(280px, 36vw, 380px);
+    padding: var(--esp-8) var(--esp-5);
+    background-color: var(--marrom-escuro);
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        rgba(48, 32, 25, 0.74),
+        rgba(48, 32, 25, 0.6)
+    );
+}
+
+.page-hero .eyebrow {
+    color: rgba(250, 247, 242, 0.78);
+}
+
+.page-hero h1 {
+    margin-bottom: var(--esp-3);
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.page-hero p {
+    max-width: 60ch;
+    margin-inline: auto;
+    color: rgba(250, 247, 242, 0.9);
+    font-size: 1.05rem;
+}
+
+/* botoes, chips e cards */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--esp-2);
+    padding: 0.85rem 1.6rem;
+    border: 2px solid transparent;
+    border-radius: var(--pill);
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color var(--transicao),
+        border-color var(--transicao),
+        color var(--transicao),
+        box-shadow var(--transicao),
+        transform var(--transicao);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primario {
+    background-color: var(--marrom);
+    color: #fff;
+    box-shadow: var(--sombra-card);
+}
+
+.btn--primario:hover {
+    background-color: var(--marrom-escuro);
+    box-shadow: var(--sombra-hover);
+}
+
+.btn--claro {
+    background-color: #fff;
+    color: var(--marrom-escuro);
+}
+
+.btn--claro:hover {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--pill);
+    background-color: var(--superficie-alt);
+    color: var(--marrom);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.card {
+    background-color: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-card);
+    overflow: hidden;
+    transition:
+        transform 320ms ease,
+        box-shadow 320ms ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+}
+
+.callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--esp-9) var(--esp-5);
+    background-color: var(--marrom-escuro);
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+.callout h2 {
+    color: #fff;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+.callout p {
+    max-width: 60ch;
+    margin-bottom: var(--esp-5);
+    color: rgba(250, 247, 242, 0.9);
+}
+
+/* footer */
+
+.site-footer {
+    padding: var(--esp-8) 0 var(--esp-5);
+    background-color: var(--marrom-escuro);
+    color: rgba(250, 247, 242, 0.9);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: var(--esp-6);
+    padding-bottom: var(--esp-6);
+}
+
+.site-footer h2,
+.site-footer h3 {
+    margin: 0 0 var(--esp-4);
+    color: var(--fundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+}
+
+.site-footer h2 {
+    font-size: 1.5rem;
+}
+
+.site-footer p {
+    margin: 0 0 var(--esp-3);
+    color: rgba(250, 247, 242, 0.78);
+}
+
+.footer-links ul {
+    display: grid;
+    gap: var(--esp-2);
+}
+
+.site-footer a {
+    color: rgba(250, 247, 242, 0.78);
+    text-decoration: none;
+    transition: color var(--transicao);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.footer-info p {
+    display: grid;
+    gap: 2px;
+    margin-bottom: var(--esp-4);
+    font-size: 0.92rem;
+}
+
+.footer-info-label {
+    color: rgba(250, 247, 242, 0.6);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--esp-2);
+    padding-top: var(--esp-4);
+    border-top: 1px solid rgba(250, 247, 242, 0.18);
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(250, 247, 242, 0.6);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 1000px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 420px) {
+    .footer-container {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: var(--esp-5);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+/* so o contador de gatinhos da pagina de adocao usa isso */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* corta o scroll, zoom e transicao */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .card:hover,
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* cards dos moradores e bloco de cuidados — veio do gatinhos.css, que nao compensava manter separado */
+
+.gatinhos-hero {
+    background-image: url("../assets/images/gatinhos/gato-laranja.jpg");
+}
+
+.gatinhos-section {
+    padding: var(--esp-9) 0;
+}
+
+.gatinhos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--esp-5);
+}
+
+.gatinho-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.gatinho-imagem {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--superficie-alt);
+}
+
+.gatinho-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+}
+
+.gatinho-card:hover .gatinho-imagem img {
+    transform: scale(1.06);
+}
+
+.gatinho-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--esp-5) var(--esp-4);
+    text-align: center;
+}
+
+.gatinho-info h3 {
+    margin-bottom: var(--esp-2);
+    font-size: 1.25rem;
+}
+
+.gatinho-info .chip { margin-bottom: var(--esp-3); }
+
+.gatinho-info p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+}
+
+.cuidados-section {
+    padding: var(--esp-9) 0;
+    background-color: var(--superficie-alt);
+}
+
+.cuidados-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--esp-7);
+}
+
+.cuidados-texto h2 {
+    margin-bottom: var(--esp-4);
+    font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+}
+
+.cuidados-texto p {
+    color: var(--texto-suave);
+    font-size: 1rem;
+}
+
+.cuidados-imagem {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+    background-color: var(--superficie);
+}
+
+.cuidados-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+}
+
+.cuidados-imagem:hover img {
+    transform: scale(1.04);
+}
+
+.gatinhos-callout {
+    background-image:
+        linear-gradient(rgba(48, 32, 25, 0.8), rgba(48, 32, 25, 0.8)),
+        url("../assets/images/cafeteria-com-gatos-slideshow02.jpg");
+}
+
+@media (max-width: 1000px) {
+    .gatinhos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cuidados-container {
+        gap: var(--esp-6);
+    }
+}
+
+@media (max-width: 700px) {
+    .gatinhos-section,
+    .cuidados-section {
+        padding: var(--esp-8) 0;
+    }
+
+    .cuidados-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gatinhos-grid {
+        grid-template-columns: 1fr;
+        gap: var(--esp-4);
+    }
+
+    .gatinho-imagem {
+        aspect-ratio: 16 / 10;
     }
 }

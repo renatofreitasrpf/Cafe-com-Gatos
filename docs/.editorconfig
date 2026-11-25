@@ -1,0 +1,14 @@
+# mantem os arquivos no padrao em que eles ja estao: UTF-8 sem BOM, CRLF e 4 espacos
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+# no markdown dois espacos no fim da linha sao quebra de linha
+trim_trailing_whitespace = false

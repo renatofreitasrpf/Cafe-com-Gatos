@@ -1,306 +1,339 @@
-const produtos = [
-    {
-        nome: "Cappuccino",
-        categoria: "cafes",
-        descricao: "Café espresso com leite vaporizado e uma camada de espuma.",
-        preco: 12.00,
-        imagem: "../assets/images/cardapio/cappuccino.jpg"
-    },
+'use strict';
 
-    {
-        nome: "Café Latte",
-        categoria: "cafes",
-        descricao: "Uma combinação suave de espresso e leite cremoso.",
-        preco: 14.00,
-        imagem: "../assets/images/cardapio/cafelatte.jpg"
-    },
+// sem o IIFE, as funcoes declaradas aqui viram propriedades do window
+(function () {
+    // um objeto por item; a categoria precisa casar com o id da secao no HTML
+    const PRODUTOS = [
+        {
+            id: 'cappuccino',
+            nome: 'Cappuccino',
+            categoria: 'cafes',
+            descricao: 'Café espresso com leite vaporizado e uma camada de espuma.',
+            preco: 12.5,
+            imagem: '../assets/images/cardapio/cappuccino.jpg'
+        },
+        {
+            id: 'cafe-latte',
+            nome: 'Café Latte',
+            categoria: 'cafes',
+            descricao: 'Uma combinação suave de espresso e leite cremoso.',
+            preco: 14.9,
+            imagem: '../assets/images/cardapio/cafeLatte.jpg'
+        },
+        {
+            id: 'mocha',
+            nome: 'Mocha',
+            categoria: 'cafes',
+            descricao: 'Café espresso com chocolate e leite vaporizado.',
+            preco: 15.9,
+            imagem: '../assets/images/cardapio/mocha.jpg'
+        },
+        {
+            id: 'frappuccino',
+            nome: 'Frappuccino',
+            categoria: 'bebidas',
+            descricao: 'Bebida gelada de café com leite e gelo.',
+            preco: 19.9,
+            imagem: '../assets/images/cardapio/frappuccino.jpg'
+        },
+        {
+            id: 'iced-coffee',
+            nome: 'Iced Coffee',
+            categoria: 'bebidas',
+            descricao: 'Extraído a frio por 12 horas, servido com gelo.',
+            preco: 13.5,
+            imagem: '../assets/images/cardapio/icedCoffee.jpg'
+        },
+        {
+            id: 'croissant',
+            nome: 'Croissant',
+            categoria: 'salgados',
+            descricao: 'Assado aqui de manhã. Se acabar, acabou.',
+            preco: 11.9,
+            imagem: '../assets/images/cardapio/croissant.jpg'
+        },
+        {
+            id: 'sanduiche-natural',
+            nome: 'Sanduíche Natural',
+            categoria: 'salgados',
+            descricao: 'Sanduíche fresco com queijo, frango e salada.',
+            preco: 17.5,
+            imagem: '../assets/images/cardapio/sanduicheNatural.jpg'
+        },
+        {
+            id: 'brownie',
+            nome: 'Brownie',
+            categoria: 'doces',
+            descricao: '70% cacau, massa densa, servido morno.',
+            preco: 10.9,
+            imagem: '../assets/images/cardapio/brownie.jpg'
+        },
+        {
+            id: 'cheesecake',
+            nome: 'Cheesecake',
+            categoria: 'doces',
+            descricao: 'Cheesecake cremoso com cobertura de frutas vermelhas.',
+            preco: 16.9,
+            imagem: '../assets/images/cardapio/cheesecake.jpg'
+        }
+    ];
 
-    {
-        nome: "Mocha",
-        categoria: "cafes",
-        descricao: "Café espresso com chocolate e leite vaporizado.",
-        preco: 15.00,
-        imagem: "../assets/images/cardapio/mocha.jpg"
-    },
+    const formatadorMoeda = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
 
-    {
-        nome: "Frappuccino",
-        categoria: "bebidas",
-        descricao: "Bebida gelada de café com leite e gelo.",
-        preco: 18.00,
-        imagem: "../assets/images/cardapio/frappuccino.jpg"
-    },
+    const painel = document.querySelector('#carrinho');
+    const itens = document.querySelector('#carrinho-itens');
+    const total = document.querySelector('#carrinho-total');
+    const quantidade = document.querySelector('#carrinho-quantidade');
+    const botaoFechar = document.querySelector('#btn-fechar-carrinho');
 
-    {
-        nome: "Iced Coffee",
-        categoria: "bebidas",
-        descricao: "Café especial servido gelado com muito sabor.",
-        preco: 13.00,
-        imagem: "../assets/images/cardapio/icedcoffee.jpg"
-    },
+    const botaoCarrinho = document.querySelector('#btn-carrinho');
+    const badge = document.querySelector('#carrinho-badge');
 
-    {
-        nome: "Brownie",
-        categoria: "doces",
-        descricao: "Brownie de chocolate com casquinha crocante.",
-        preco: 10.00,
-        imagem: "../assets/images/cardapio/brownie.jpg"
-    },
+    const containerProdutos = document.querySelector('.produtos-container');
+    const linksCategoria = document.querySelectorAll('.categoria-link');
 
-    {
-        nome: "Cheesecake",
-        categoria: "doces",
-        descricao: "Cheesecake cremoso com cobertura de frutas vermelhas.",
-        preco: 16.00,
-        imagem: "../assets/images/cardapio/cheesecake.jpg"
-    },
+    // a gaveta do celular cobre a tela quase toda: la quem avisa que o item entrou eh o valor no botao
+    const temEspacoLateral = window.matchMedia('(min-width: 701px)');
 
-    {
-        nome: "Croissant",
-        categoria: "salgados",
-        descricao: "Croissant artesanal, leve e amanteigado.",
-        preco: 11.00,
-        imagem: "../assets/images/cardapio/croissant.jpg"
-    },
-
-    {
-        nome: "Sanduíche Natural",
-        categoria: "salgados",
-        descricao: "Sanduíche fresco com queijo, frango e salada.",
-        preco: 17.00,
-        imagem: "../assets/images/cardapio/sanduicheNatural.jpg"
+    if (!painel || !containerProdutos) {
+        return;
     }
-];
 
-function formatarPreco(valor) {
-    return valor.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    });
-}
+    // recarregar a pagina limpa carrinho
+    const carrinho = [];
 
-const carrinho = [];
+    function criarCard(produto) {
+        return `
+            <article class="card produto-card">
+                <img src="${produto.imagem}" alt="" loading="lazy" decoding="async">
+                <div class="produto-info">
+                    <h3>${produto.nome}</h3>
+                    <p>${produto.descricao}</p>
+                    <div class="produto-rodape">
+                        <span class="produto-preco">${formatadorMoeda.format(produto.preco)}</span>
+                        <button type="button" class="btn-adicionar" data-adicionar="${produto.id}" aria-label="Adicionar ${produto.nome} ao carrinho">
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+        `;
+    }
 
-const categorias = ["cafes", "bebidas", "salgados", "doces"];
+    function renderizarProdutos() {
+        containerProdutos.querySelectorAll('.produtos-grid').forEach((grade) => {
+            const categoria = grade.closest('.categoria-produtos').id;
 
-function renderizarProdutos() {
-    categorias.forEach(categoria => {
-        const produtosFiltrados = produtos.filter(produto =>
-            produto.categoria === categoria
-        );
-
-        const grid = document.querySelector(`#${categoria}-grid`);
-
-        grid.innerHTML = "";
-
-        produtosFiltrados.forEach(produto => {
-            const card = document.createElement("article");
-            card.classList.add("produto-card");
-
-            const imagem = document.createElement("img");
-            imagem.src = produto.imagem;
-            imagem.alt = produto.nome;
-            imagem.loading = "lazy";
-
-            const informacoes = document.createElement("div");
-            informacoes.classList.add("produto-info");
-
-            const nome = document.createElement("h3");
-            nome.textContent = produto.nome;
-
-            const descricao = document.createElement("p");
-            descricao.textContent = produto.descricao;
-
-            const preco = document.createElement("span");
-            preco.classList.add("produto-preco");
-
-            preco.textContent = formatarPreco(produto.preco);
-
-            const acoes = document.createElement("div");
-            acoes.classList.add("produto-acoes");
-
-            const botaoAdicionar = document.createElement("button");
-            botaoAdicionar.classList.add("btn-adicionar");
-            botaoAdicionar.textContent = "+";
-            botaoAdicionar.setAttribute(
-                "aria-label",
-                `Adicionar ${produto.nome} ao carrinho`
-            );
-
-            botaoAdicionar.addEventListener("click", () => {
-                adicionarAoCarrinho(produto);
-            });
-
-            acoes.appendChild(botaoAdicionar);
-
-            informacoes.append(nome, descricao, preco,  acoes);
-            card.append(imagem, informacoes);
-
-            grid.appendChild(card);
-        });
-    });
-}
-
-
-
-
-function adicionarAoCarrinho(produto) {
-
-    const produtoExistente = carrinho.find(item =>
-        item.nome === produto.nome
-    );
-
-    if (produtoExistente) {
-        produtoExistente.quantidade++;
-    } else {
-        carrinho.push({
-            ...produto,
-            quantidade: 1
+            grade.innerHTML = PRODUTOS
+                .filter((produto) => produto.categoria === categoria)
+                .map(criarCard)
+                .join('');
         });
     }
 
-    renderizarCarrinho();
-    abrirCarrinho();
-}
+    function adicionarAoCarrinho(id) {
+        const produto = PRODUTOS.find((item) => item.id === id);
 
-function removerDoCarrinho(nomeProduto) {
+        if (!produto) {
+            return;
+        }
 
-    const produtoExistente = carrinho.find(item =>
-        item.nome === nomeProduto
-    );
-    if (produtoExistente) {
+        const itemExistente = carrinho.find((item) => item.id === id);
 
-        produtoExistente.quantidade--;
+        if (itemExistente) {
+            itemExistente.quantidade += 1;
+        } else {
+            carrinho.push({ ...produto, quantidade: 1 });
+        }
 
-        if (produtoExistente.quantidade === 0) {
-            const indice = carrinho.indexOf(produtoExistente);
-            carrinho.splice(indice, 1);
+        // o painel aparece para confirmar, mas sem puxar o foco: da para seguir clicando no cardapio
+        renderizarCarrinho();
+
+        if (temEspacoLateral.matches) {
+            abrirCarrinho(false);
         }
     }
 
-    renderizarCarrinho();
-}
+    function alterarQuantidade(id, passo) {
+        const item = carrinho.find((entrada) => entrada.id === id);
 
+        if (!item) {
+            return;
+        }
 
-function renderizarCarrinho() {
+        const posicao = carrinho.indexOf(item);
 
-    const painelCarrinho = document.querySelector("#carrinho");
-    const carrinhoItens = document.querySelector("#carrinho-itens");
-    const carrinhoTotal = document.querySelector("#carrinho-total");
-    const carrinhoBadge = document.querySelector("#carrinho-badge");
-    const carrinhoQuantidade = document.querySelector("#carrinho-quantidade");
+        item.quantidade += passo;
 
-    carrinhoItens.innerHTML = "";
-    painelCarrinho.hidden = carrinho.length === 0;
+        if (item.quantidade <= 0) {
+            carrinho.splice(posicao, 1);
+        }
 
-    let total = 0;
-    let quantidadeTotal = 0;
+        renderizarCarrinho();
 
-    carrinho.forEach(item => {
+        // o innerHTML recria os botoes e derruba o foco; devolvo no equivalente
+        if (painel.hidden) {
+            botaoCarrinho.focus();
+            return;
+        }
 
-        const subtotal = item.preco * item.quantidade;
-
-        total += subtotal;
-        quantidadeTotal += item.quantidade;
-
-        const elemento = document.createElement("div");
-        elemento.classList.add("carrinho-item");
-        const informacoes = document.createElement("div");
-        informacoes.classList.add("carrinho-item-info");
-        const nome = document.createElement("strong");
-        nome.textContent = `${item.nome} x ${item.quantidade}`;
-        const preco = document.createElement("span");
-        preco.textContent = formatarPreco(subtotal);
-
-        
-        const controles = document.createElement("div");
-        controles.classList.add("carrinho-item-acoes");
-
-        const botaoAdicionar = document.createElement("button");
-        botaoAdicionar.classList.add("btn-adicionar-quantidade");
-        botaoAdicionar.textContent = "+";
-        botaoAdicionar.setAttribute(
-            "aria-label",
-            `Adicionar uma unidade de ${item.nome}`
+        // item zerado sai da lista: o foco cai em quem ficou no lugar dele
+        const vizinho = carrinho[Math.min(posicao, carrinho.length - 1)];
+        const atual = itens.querySelector(
+            `[data-acao="${passo > 0 ? 'aumentar' : 'diminuir'}"][data-id="${id}"]`
+        );
+        const proximo = itens.querySelector(
+            `[data-acao="diminuir"][data-id="${vizinho.id}"]`
         );
 
-        botaoAdicionar.addEventListener("click", () => {
-            adicionarAoCarrinho(item);
+        (atual || proximo || botaoFechar).focus();
+    }
+
+    function criarItemCarrinho(item) {
+        return `
+            <div class="carrinho-item">
+                <div class="carrinho-item-info">
+                    <strong>${item.nome}</strong>
+                    <span>${item.quantidade} × ${formatadorMoeda.format(item.preco)}</span>
+                </div>
+                <div class="carrinho-item-acoes">
+                    <button type="button" class="btn-quantidade" data-acao="diminuir" data-id="${item.id}" aria-label="Remover uma unidade de ${item.nome}">−</button>
+                    <span class="carrinho-item-qtd">${item.quantidade}</span>
+                    <button type="button" class="btn-quantidade" data-acao="aumentar" data-id="${item.id}" aria-label="Adicionar uma unidade de ${item.nome}">+</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderizarCarrinho() {
+        itens.innerHTML = carrinho.length
+            ? carrinho.map(criarItemCarrinho).join('')
+            : '<p class="carrinho-vazio">Seu carrinho está vazio.</p>';
+
+        let valorTotal = 0;
+        let unidades = 0;
+
+        carrinho.forEach((item) => {
+            valorTotal += item.preco * item.quantidade;
+            unidades += item.quantidade;
         });
-        const botaoRemover = document.createElement("button");
-        botaoRemover.classList.add("btn-remover");
-        botaoRemover.textContent = "−";
-        botaoRemover.setAttribute(
-            "aria-label",
-            `Remover uma unidade de ${item.nome}`
-        );
 
-        botaoRemover.addEventListener("click", () => {
-            removerDoCarrinho(item.nome);
-        });
+        const valorFormatado = formatadorMoeda.format(valorTotal);
 
-        controles.append(botaoAdicionar, botaoRemover);
-        informacoes.append(nome, preco);
-        elemento.append(informacoes, controles);
-        carrinhoItens.appendChild(elemento);
-    });
+        total.textContent = valorFormatado;
+        badge.textContent = valorFormatado;
+        quantidade.textContent = unidades;
 
-    carrinhoQuantidade.textContent = quantidadeTotal;
-    carrinhoTotal.textContent = formatarPreco(total);
-    carrinhoBadge.textContent = formatarPreco(total);
-}
+        if (!carrinho.length) {
+            ocultarCarrinho();
+        }
+    }
 
+    function abrirCarrinho(moverFoco = true) {
+        painel.hidden = false;
+        botaoCarrinho.setAttribute('aria-expanded', 'true');
 
-const linksCategorias = document.querySelectorAll(".categoria-link");
+        if (moverFoco) {
+            botaoFechar.focus();
+        }
+    }
 
-const secoesCategorias = document.querySelectorAll(".categoria-produtos");
+    function ocultarCarrinho() {
+        painel.hidden = true;
+        botaoCarrinho.setAttribute('aria-expanded', 'false');
+    }
 
-function atualizarCategoria(id) {
+    function fecharCarrinho() {
+        ocultarCarrinho();
+        botaoCarrinho.focus();
+    }
 
-    linksCategorias.forEach(link => {
+    function fecharSeClicouFora(evento) {
+        if (painel.hidden) {
+            return;
+        }
 
-        link.classList.toggle(
-            "active",
-            link.getAttribute("href") === `#${id}`
-        );
-    });
-}
+        const { target } = evento;
 
-const observador = new IntersectionObserver((entradas) => {
+        if (painel.contains(target) || botaoCarrinho.contains(target) || target.closest('[data-adicionar]')) {
+            return;
+        }
 
-    entradas.forEach(entrada => {
+        ocultarCarrinho();
+    }
 
-        if (entrada.isIntersecting) {
-            atualizarCategoria(entrada.target.id);
+    containerProdutos.addEventListener('click', (evento) => {
+        const botao = evento.target.closest('[data-adicionar]');
+
+        if (botao) {
+            adicionarAoCarrinho(botao.dataset.adicionar);
         }
     });
-}, {
-    rootMargin: "-20% 0px -60% 0px"
-});
 
-secoesCategorias.forEach(secao => {
-    observador.observe(secao);
-});
+    itens.addEventListener('click', (evento) => {
+        const botao = evento.target.closest('[data-acao]');
 
-renderizarProdutos();
+        if (!botao) {
+            return;
+        }
 
+        const passo = botao.dataset.acao === 'aumentar' ? 1 : -1;
 
-const botaoCarrinho = document.querySelector("#btn-carrinho");
-const botaoFecharCarrinho = document.querySelector("#btn-fechar-carrinho");
-const painelCarrinho = document.querySelector("#carrinho");
+        alterarQuantidade(botao.dataset.id, passo);
+    });
 
-function abrirCarrinho() {
+    botaoCarrinho.addEventListener('click', () => {
+        if (painel.hidden) {
+            abrirCarrinho();
+        } else {
+            fecharCarrinho();
+        }
+    });
+    botaoFechar.addEventListener('click', fecharCarrinho);
 
-    painelCarrinho.hidden = false;
+    document.addEventListener('pointerdown', fecharSeClicouFora);
 
-    botaoCarrinho.setAttribute("aria-expanded", "true");
-}
+    document.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Escape' && !painel.hidden) {
+            fecharCarrinho();
+        }
+    });
 
-function fecharCarrinho() {
+    function ativarCategoria(id) {
+        linksCategoria.forEach((link) => {
+            const atual = link.getAttribute('href') === `#${id}`;
 
-    painelCarrinho.hidden = true;
+            link.classList.toggle('active', atual);
 
-    botaoCarrinho.setAttribute("aria-expanded", "false");
-}
-botaoCarrinho.addEventListener("click", abrirCarrinho);
-botaoFecharCarrinho.addEventListener("click", fecharCarrinho);
+            if (atual) {
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    const secoes = document.querySelectorAll('.categoria-produtos');
+
+    if ('IntersectionObserver' in window && secoes.length) {
+        const observador = new IntersectionObserver(
+            (entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        ativarCategoria(entrada.target.id);
+                    }
+                });
+            },
+            // so a fatia do meio da tela decide a categoria ativa: sem isso ela troca cedo demais
+            { rootMargin: '-25% 0px -60% 0px' }
+        );
+
+        secoes.forEach((secao) => observador.observe(secao));
+    }
+
+    renderizarProdutos();
+    renderizarCarrinho();
+})();

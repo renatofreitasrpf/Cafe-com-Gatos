@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Quatro gatinhos moram no Café com Gatos e procuram um lar. Veja a ficha de cada um e escreva para a gente.">
+    <meta name="theme-color" content="#51382d">
+
+    <title>Adote | Café com Gatos</title>
+
+    <link rel="icon" href="../assets/icons/fav.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Inter:wght@400..600&amp;display=swap">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/adote.css">
+
+    <script src="../js/adote.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <p class="site-brand">
+                <a href="../index.html">Café com <span>Gatos</span></a>
+            </p>
+            <nav class="site-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="nossoCardapio.html">Nosso Cardápio</a></li>
+                    <li><a href="nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="adote.html" aria-current="page">Adote</a></li>
+                    <li><a href="sobreNos.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero adote-hero" aria-labelledby="titulo-pagina">
+            <div class="container">
+                <p class="eyebrow">Adoção responsável</p>
+                <h1 id="titulo-pagina">Adote</h1>
+                <p>Eles moram no café e estão esperando uma casa. A entrevista é com a gente; a decisão final é do gato.</p>
+            </div>
+        </section>
+
+        <section class="adocao-section" aria-labelledby="titulo-disponiveis">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Procurando um lar</p>
+                    <h2 id="titulo-disponiveis">Gatinhos disponíveis</h2>
+                    <p>Todos são vacinados, vermifugados e acompanhados pela nossa equipe.</p>
+                </div>
+
+                <div class="filtros" role="group" aria-label="Filtrar por idade">
+                    <button type="button" class="filtro" data-filtro="todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="filtro" data-filtro="filhote" aria-pressed="false">Filhotes</button>
+                    <button type="button" class="filtro" data-filtro="adulto" aria-pressed="false">Adultos</button>
+                </div>
+
+                <noscript>
+                    <p class="adocao-vazio">Ative o JavaScript para ver os gatinhos disponíveis. Você também pode falar com a gente pelo Instagram.</p>
+                </noscript>
+
+                <div class="gatinhos-adocao" id="lista-adocao"></div>
+                <!-- so a contagem eh anunciada; a grade inteira como regiao viva virava barulho -->
+                <p class="visually-hidden" id="status-adocao" role="status"></p>
+
+                <template id="molde-gatinho">
+                    <article class="card adocao-card">
+                        <div class="adocao-imagem">
+                            <img alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="adocao-info">
+                            <div class="adocao-topo">
+                                <h3></h3>
+                                <span class="chip"></span>
+                            </div>
+                            <p></p>
+                            <ul class="adocao-tags"></ul>
+                            <button type="button" class="btn btn--primario" data-adotar>Quero adotar</button>
+                        </div>
+                    </article>
+                </template>
+            </div>
+        </section>
+
+        <section class="como-funciona" aria-labelledby="titulo-processo">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Como funciona</p>
+                    <h2 id="titulo-processo">Adotar é simples, mas não é rápido</h2>
+                    <p>Três passos para garantir que a escolha seja boa para você e para o gatinho.</p>
+                </div>
+
+                <ol class="passos">
+                    <li class="passo">
+                        <span class="passo-numero" aria-hidden="true">1</span>
+                        <h3>Escolha seu gatinho</h3>
+                        <p>Veja quem está disponível e clique em "Quero adotar" no perfil que combina com a sua rotina.</p>
+                    </li>
+
+                    <li class="passo">
+                        <span class="passo-numero" aria-hidden="true">2</span>
+                        <h3>Converse com a equipe</h3>
+                        <p>Vamos entender seu dia a dia e contar o que cada um precisa.</p>
+                    </li>
+
+                    <li class="passo">
+                        <span class="passo-numero" aria-hidden="true">3</span>
+                        <h3>Visite e leve para casa</h3>
+                        <p>Marque uma visita ao café, passe um tempo com ele e combine a adoção com termo de responsabilidade.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="callout adote-callout">
+            <h2>Não pode adotar agora?</h2>
+            <p>Você ainda pode ajudar: compartilhe os perfis, venha tomar um café ou traga doações. Toda ajuda chega aos gatinhos.</p>
+            <a class="btn btn--claro" href="https://instagram.com/cafecomgatos" target="_blank" rel="noopener noreferrer">Falar no Instagram</a>
+        </section>
+    </main>
+
+    <dialog class="dialogo" id="dialogo-adocao" aria-labelledby="dialogo-titulo">
+        <div class="dialogo-conteudo">
+            <div class="dialogo-header">
+                <h2 id="dialogo-titulo">Quero adotar</h2>
+                <button type="button" class="dialogo-fechar" data-fechar-dialogo aria-label="Fechar formulário">×</button>
+            </div>
+
+            <p class="dialogo-subtitulo" id="dialogo-gatinho">Interesse em adotar:</p>
+
+            <form class="form-adocao" id="form-adocao">
+                <input type="hidden" name="gatinho" id="campo-gatinho">
+
+                <div class="campo">
+                    <label for="adotante-nome">Seu nome</label>
+                    <input type="text" id="adotante-nome" name="nome" autocomplete="name" required>
+                </div>
+
+                <div class="campo">
+                    <label for="adotante-email">E-mail</label>
+                    <input type="email" id="adotante-email" name="email" autocomplete="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="adotante-mensagem">Conte um pouco sobre sua casa</label>
+                    <textarea id="adotante-mensagem" name="mensagem" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn--primario">Enviar</button>
+            </form>
+
+            <div class="form-sucesso" id="form-sucesso" hidden>
+                <h3 id="sucesso-titulo">Obrigado!</h3>
+                <button type="button" class="btn btn--primario" data-fechar-dialogo>Fechar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h2>Café com Gatos</h2>
+                <p>Cafeteria com gatos em Gatolândia.</p>
+            </div>
+
+            <nav class="footer-links" aria-label="Menu do rodapé">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="nossoCardapio.html">Nosso Cardápio</a></li>
+                    <li><a href="nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="adote.html">Adote</a></li>
+                    <li><a href="sobreNos.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-info">
+                <h3>Informações</h3>
+                <p><span class="footer-info-label">Horário</span>Segunda a sábado, 10h às 20h</p>
+                <p><span class="footer-info-label">Endereço</span>Rua dos Bigodes, 123 — Gatolândia</p>
+                <p>
+                    <span class="footer-info-label">Instagram</span>
+                    <a href="https://instagram.com/cafecomgatos" target="_blank" rel="noopener noreferrer">@cafecomgatos</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Café com Gatos. Todos os direitos reservados.</p>
+            <p>Feito com café e um gato no colo.</p>
+        </div>
+    </footer>
+</body>
+</html>

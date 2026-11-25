@@ -1,0 +1,146 @@
+/* historia, proposito e valores da cafeteria */
+
+.sobre-hero {
+    background-image: url("../assets/images/sobre-nos/historia.jpg");
+}
+
+.historia-section {
+    padding: var(--esp-9) 0;
+}
+
+.historia-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--esp-7);
+}
+
+.historia-texto h2 {
+    margin-bottom: var(--esp-4);
+    font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+}
+
+.historia-texto p {
+    color: var(--texto-suave);
+}
+
+.historia-imagem {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+    background-color: var(--superficie);
+}
+
+.historia-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+}
+
+.historia-imagem:hover img {
+    transform: scale(1.04);
+}
+
+.missao-section {
+    padding: var(--esp-8) 0;
+    background-color: var(--superficie-alt);
+    text-align: center;
+}
+
+.missao-container {
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.missao-container h2 {
+    margin-bottom: var(--esp-4);
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+}
+
+.missao-container p {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+}
+
+.valores-section {
+    padding: var(--esp-9) 0;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--esp-5);
+}
+
+.valor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--esp-6) var(--esp-5);
+    text-align: center;
+}
+
+.valor-icone {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--esp-4);
+    border-radius: 50%;
+    background-color: var(--superficie-alt);
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.valor-card h3 {
+    margin-bottom: var(--esp-2);
+    font-size: 1.15rem;
+}
+
+.valor-card p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.sobre-callout {
+    background-image:
+        linear-gradient(rgba(48, 32, 25, 0.8), rgba(48, 32, 25, 0.8)),
+        url("../assets/images/cafeteria-com-gatos-slideshow03.jpg");
+}
+
+@media (max-width: 1000px) {
+    .valores-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .historia-container {
+        gap: var(--esp-6);
+    }
+}
+
+@media (max-width: 700px) {
+    .historia-section,
+    .valores-section {
+        padding: var(--esp-8) 0;
+    }
+
+    .missao-section {
+        padding: var(--esp-7) 0;
+    }
+
+    .historia-container {
+        grid-template-columns: 1fr;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        gap: var(--esp-4);
+    }
+
+    .valor-card {
+        padding: var(--esp-5) var(--esp-4);
+    }
+}

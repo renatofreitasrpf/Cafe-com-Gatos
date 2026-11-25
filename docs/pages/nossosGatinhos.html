@@ -1,146 +1,163 @@
 <!DOCTYPE html>
-<html lang='pt-BR'>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Carioca, Côco, Angélico e Lindsay moram no Café com Gatos. Cada um com seu jeito, todos disponíveis para adoção.">
+    <meta name="theme-color" content="#51382d">
 
-    <title>Nossos Gatinhos</title>
+    <title>Nossos Gatinhos | Café com Gatos</title>
 
     <link rel="icon" href="../assets/icons/fav.ico" type="image/x-icon">
 
-    <link rel='stylesheet' href='../css/style.css'>
-    <link rel='stylesheet' href='../css/nossosGatinhos.css'>
-    
-    <script src='../js/main.js' defer></script>
-    <script src="../js/nossosGatinhos.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Inter:wght@400..600&amp;display=swap">
+
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-    <header>
-        <h1>Café com Gato</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a href='../index.html'>Início</a></li>
-                <li><a href='nossoCardapio.html'>Nosso Cardápio</a></li>
-                <li><a href='nossosGatinhos.html' class="active">Nossos Gatinhos</a></li>
-                <li><a href='sobreNos.html'>Sobre Nós</a></li>
-                <li><a href='contato.html'>Contato</a></li>
-            </ul>
-        </nav>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <p class="site-brand">
+                <a href="../index.html">Café com <span>Gatos</span></a>
+            </p>
+            <nav class="site-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="nossoCardapio.html">Nosso Cardápio</a></li>
+                    <li><a href="nossosGatinhos.html" aria-current="page">Nossos Gatinhos</a></li>
+                    <li><a href="adote.html">Adote</a></li>
+                    <li><a href="sobreNos.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main class="nossos-gatinhos">
-        <section class="gatinhos-banner">
-            <h2>Nossos Gatinhos</h2>
-            <p>Conheça nossos pequenos moradores! Cada um tem sua personalidade, seu charme e muito carinho para compartilhar.</p>
-        </section>
 
-         <section class="gatinhos-section">
-            <div class="header-section">
-                <span class="subtitulo">Nossos moradores</span>
-                <h2>Conheça nossos amigos felinos</h2>
-                <p>Eles são os verdadeiros donos da casa e estão esperando para conhecer você!</p>
-            </div>
-
-            <div class="gatinhos-grid">
-                <article class="gatinho-card">
-                    <div class="gatinho-imagem">
-                        <img src="../assets/images/gatinhos/gato-preto.jpg" alt="Foto do gatinho preto">
-                    </div>
-                    <div class="gatinho-info">
-                        <h3>Carioca</h3>
-                        <span class="gatinho-personalidade">Carinhoso</span>
-                        <p>Um gatinho muito tranquilo que adora receber carinho e tirar longas sonecas.</p>
-                    </div>
-                </article>
-
-                 <article class="gatinho-card">
-                    <div class="gatinho-imagem">
-                        <img src="../assets/images/gatinhos/gato-branco.jpg" alt="Foto do gatinho branco">
-                    </div>
-
-                    <div class="gatinho-info">
-                        <h3>Côco</h3>
-                        <span class="gatinho-personalidade">Brincalhão</span>
-                        <p>Cheio de energia e curiosidade, está sempre procurando uma nova aventura.</p>
-                    </div>
-                </article>
-
-                <article class="gatinho-card">
-                    <div class="gatinho-imagem">
-                        <img src="../assets/images/gatinhos/gato-laranja.jpg" alt="Foto do gatinho laranja">
-                    </div>
-
-                    <div class="gatinho-info">
-                        <h3>Angélico Ferreira</h3>
-                        <span class="gatinho-personalidade">Preguiçoso</span>
-                        <p>Especialista em encontrar os melhores cantinhos para descansar durante o dia.</p>
-                    </div>
-                </article>
-
-                <article class="gatinho-card">
-                    <div class="gatinho-imagem">
-                        <img src="../assets/images/gatinhos/gato-tricolor.jpg" alt="Foto do gatinho tricolor">
-                    </div>
-                    <div class="gatinho-info">
-                        <h3>Lindsay Lohan</h3>
-                        <span class="gatinho-personalidade">Curioso</span>
-                        <p>Gosta de observar tudo ao seu redor e conhecer cada visitante da cafeteria.
-                        </p>
-                    </div>
-                </article>
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero gatinhos-hero" aria-labelledby="titulo-pagina">
+            <div class="container">
+                <p class="eyebrow">Moradores da casa</p>
+                <h1 id="titulo-pagina">Nossos Gatinhos</h1>
+                <p>Quatro gatos com rotinas bem diferentes — e a mesma opinião sobre o canto do sol.</p>
             </div>
         </section>
 
-        <section class="cuidados-section">
-            <div class="cuidados-container">
+        <section class="gatinhos-section" aria-labelledby="titulo-gatinhos">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Cada um do seu jeito</p>
+                    <h2 id="titulo-gatinhos">Quem mora aqui</h2>
+                    <p>Eles moram aqui, e qualquer um deles pode ir morar com você.</p>
+                </div>
+
+                <!-- fichas escritas na mao: a pagina abre mesmo sem JS. Em adote.html os mesmos gatos vem de um array -->
+                <!-- a foto fica sem alt: o nome do gato esta no h3 logo abaixo -->
+                <div class="gatinhos-grid">
+                    <article class="card gatinho-card">
+                        <div class="gatinho-imagem">
+                            <img src="../assets/images/gatinhos/gato-preto.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gatinho-info">
+                            <h3>Carioca</h3>
+                            <span class="chip">Carinhoso</span>
+                            <p>Muito tranquilo, adora receber carinho e tirar longas sonecas.</p>
+                        </div>
+                    </article>
+
+                    <article class="card gatinho-card">
+                        <div class="gatinho-imagem">
+                            <img src="../assets/images/gatinhos/gato-branco.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gatinho-info">
+                            <h3>Côco</h3>
+                            <span class="chip">Brincalhão</span>
+                            <p>Cheio de energia e curiosidade, com um olho azul e outro verde.</p>
+                        </div>
+                    </article>
+
+                    <article class="card gatinho-card">
+                        <div class="gatinho-imagem">
+                            <img src="../assets/images/gatinhos/gato-laranja.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gatinho-info">
+                            <h3>Angélico</h3>
+                            <span class="chip">Preguiçoso</span>
+                            <p>Especialista em encontrar os melhores cantinhos para descansar.</p>
+                        </div>
+                    </article>
+
+                    <article class="card gatinho-card">
+                        <div class="gatinho-imagem">
+                            <img src="../assets/images/gatinhos/gato-tricolor.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gatinho-info">
+                            <h3>Lindsay</h3>
+                            <span class="chip">Curiosa</span>
+                            <p>Observa tudo ao seu redor e quer conhecer cada visitante da cafeteria.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cuidados-section" aria-labelledby="titulo-cuidados">
+            <div class="container cuidados-container">
                 <div class="cuidados-texto">
-                    <span class="subtitulo">Nosso compromisso</span>
-                    <h2>O bem-estar deles vem em primeiro lugar</h2>
-                    <p>Nossos gatinhos recebem carinho, alimentação adequada, acompanhamento veterinário e espaços preparados para seu conforto.</p>
-                    <p>Respeitamos o tempo e a personalidade de cada animal, garantindo que todos possam descansar e interagir quando desejarem.</p>
+                    <p class="eyebrow">Nosso compromisso</p>
+                    <h2 id="titulo-cuidados">O bem-estar deles vem em primeiro lugar</h2>
+                    <p>Nossos gatinhos recebem carinho, alimentação adequada, acompanhamento veterinário e espaços preparados para o conforto deles.</p>
+                    <p>Respeitamos o tempo e a personalidade de cada animal, para que todos possam descansar e interagir quando quiserem.</p>
                 </div>
 
                 <div class="cuidados-imagem">
-                    <img src="../assets/images/gatinhos/cuidados.jpg" alt="Gatinho descansando em um ambiente aconchegante">
+                    <img src="../assets/images/gatinhos/gato-descansando.jpg" alt="Gatos no arranhador da cafeteria" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
 
-        <section class="convite-gatinhos">
-            <h2>Que tal conhecer nossos gatinhos?</h2>
-            <p>Venha tomar um café, relaxar e conhecer pessoalmente nossos adoráveis moradores!</p>
-            <a href="contato.html" class="btn-convite">Entre em contato</a>
+        <section class="callout gatinhos-callout">
+            <h2>Quer dar um lar a um deles?</h2>
+            <p>Eles já estão vacinados e vermifugados, e a adoção é combinada com calma.</p>
+            <a href="adote.html" class="btn btn--claro">Quero adotar</a>
         </section>
-
     </main>
-    <footer class="footer">
-        
-        <div class="footer-container">
+
+    <footer class="site-footer">
+        <div class="container footer-container">
             <div class="footer-brand">
                 <h2>Café com Gatos</h2>
-                <p>
-                    Um lugar onde bons cafés e boas companhias se encontram.
-                </p>
+                <p>Cafeteria com gatos em Gatolândia.</p>
             </div>
-            <div class="footer-links">
+
+            <nav class="footer-links" aria-label="Menu do rodapé">
                 <h3>Menu</h3>
                 <ul>
                     <li><a href="../index.html">Início</a></li>
                     <li><a href="nossoCardapio.html">Nosso Cardápio</a></li>
                     <li><a href="nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="adote.html">Adote</a></li>
                     <li><a href="sobreNos.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
                 </ul>
-            </div>
+            </nav>
+
             <div class="footer-info">
                 <h3>Informações</h3>
-                <p> 🕒 Segunda a sábado: 10h às 20h</p>
-                <p> 📍 Rua dos Bigodes, 123 - Gatolândia</p>
-                <p> 📷 @cafecomgatos</p>
+                <p><span class="footer-info-label">Horário</span>Segunda a sábado, 10h às 20h</p>
+                <p><span class="footer-info-label">Endereço</span>Rua dos Bigodes, 123 — Gatolândia</p>
+                <p>
+                    <span class="footer-info-label">Instagram</span>
+                    <a href="https://instagram.com/cafecomgatos" target="_blank" rel="noopener noreferrer">@cafecomgatos</a>
+                </p>
             </div>
         </div>
-        <div class="footer-bottom">
+
+        <div class="container footer-bottom">
             <p>&copy; 2026 Café com Gatos. Todos os direitos reservados.</p>
-            <p>Feito com ☕ e muito amor pelos gatinhos.</p>
+            <p>Feito com café e um gato no colo.</p>
         </div>
     </footer>
 </body>

@@ -1,139 +1,171 @@
 <!DOCTYPE html>
-<html lang='pt-BR'>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cafeteria com gatos em Gatolândia. Café tirado na hora e doces que saem do forno de manhã. Quatro gatos moram aqui.">
+    <meta name="theme-color" content="#51382d">
 
-    <title>Café com Gato</title>
+    <title>Café com Gatos | Cafeteria com gatos em Gatolândia</title>
 
     <link rel="icon" href="assets/icons/fav.ico" type="image/x-icon">
-    
-    <link rel='stylesheet' href='css/style.css'>
-    <link rel="stylesheet" href="css/slideshow.css">
-    <link rel="stylesheet" href="css/menuCards.css">
 
-    <script src='js/main.js' defer></script>
-    <script src='js/slideshow.js' defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=Inter:wght@400..600&amp;display=swap">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <script src="js/home.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Café com Gato</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a href='index.html' class="active">Início</a></li>
-                <li><a href='pages/nossoCardapio.html'>Nosso Cardápio</a></li>
-                <li><a href='pages/nossosGatinhos.html'>Nossos Gatinhos</a></li>
-                <li><a href='pages/sobreNos.html'>Sobre Nós</a></li>
-                <li><a href='pages/contato.html'>Contato</a></li>
-            </ul>
-        </nav>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <p class="site-brand">
+                <a href="index.html">Café com <span>Gatos</span></a>
+            </p>
+            <nav class="site-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Início</a></li>
+                    <li><a href="pages/nossoCardapio.html">Nosso Cardápio</a></li>
+                    <li><a href="pages/nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="pages/adote.html">Adote</a></li>
+                    <li><a href="pages/sobreNos.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <section class="slideshow">
-            <div class="slides">
-                <a href="index.html" class="slide active">
-                    <img src="assets/images/cafeteria-com-gatos-slideshow01.jpg" alt="Cafeteria com gatos, cafés e sua identidade visual">
-                </a>
-                <a href="pages/nossoCardapio.html" class="slide">
-                    <img src="assets/images/cafeteria-com-gatos-slideshow02.jpg" alt="Conheça nosso cardápio">
-                </a>
-                <a href="pages/nossosGatinhos.html" class="slide">
-                    <img src="assets/images/cafeteria-com-gatos-slideshow03.jpg" alt="Conheça nossos gatinhos">
-                </a>
+
+    <main id="conteudo" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-titulo">
+            <!-- fundo do carrossel: decorativo, quem descreve a cafeteria eh o texto ao lado -->
+            <div class="hero-slides" id="hero-slides">
+                <div class="hero-slide active">
+                    <img src="assets/images/cafeteria-com-gatos-slideshow01.jpg" alt="" fetchpriority="high" decoding="async">
+                </div>
+                <div class="hero-slide">
+                    <img src="assets/images/cafeteria-com-gatos-slideshow02.jpg" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="hero-slide">
+                    <img src="assets/images/cafeteria-com-gatos-slideshow03.jpg" alt="" loading="lazy" decoding="async">
+                </div>
             </div>
 
-            <button type="button" class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button type="button" class="next" onclick="changeSlide(1)">&#10095;</button>
-
-            <div class="slideshowDots">
-                <span class="slideshowDot active" onclick="currentSlide(0)"></span>
-                <span class="slideshowDot" onclick="currentSlide(1)"></span>
-                <span class="slideshowDot" onclick="currentSlide(2)"></span>
+            <div class="container hero-conteudo">
+                <p class="eyebrow">Cafeteria com gatos em Gatolândia</p>
+                <h1 id="hero-titulo">Café fresco e ronronar de fundo.</h1>
+                <p class="hero-texto">Um espaço tranquilo para tomar um bom café, comer algo assado aqui de manhã e dividir o sofá com quem já mora aqui.</p>
+                <div class="hero-acoes">
+                    <a class="btn btn--claro" href="pages/nossoCardapio.html">Ver o cardápio</a>
+                    <a class="btn btn--contorno" href="pages/nossosGatinhos.html">Conhecer os gatinhos</a>
+                </div>
             </div>
 
+            <div class="hero-controles">
+                <button type="button" class="hero-seta" data-slide-anterior aria-label="Imagem anterior">
+                    &#10094;
+                </button>
+                <div class="hero-indicadores">
+                    <button type="button" class="hero-indicador active" data-slide-indicador aria-label="Ver imagem 1"></button>
+                    <button type="button" class="hero-indicador" data-slide-indicador aria-label="Ver imagem 2"></button>
+                    <button type="button" class="hero-indicador" data-slide-indicador aria-label="Ver imagem 3"></button>
+                </div>
+                <button type="button" class="hero-seta" data-slide-proximo aria-label="Próxima imagem">&#10095;</button>
+            </div>
         </section>
 
-        <section class="menu-section">
-            <h2>Explore nosso espaço</h2>
-            <div class="menu-cards">
-                
-                <a href="pages/nossoCardapio.html" class="menu-card">
-                    <div class="card-image">
-                        <img src="assets/images/cafeteria-com-gatos-cardapio.jpg" alt="Cafés e delícias do nosso cardápio">
-                    </div>
-                    <div class="card-content">
-                        <h3>Nosso Cardápio</h3>
-                        <p>Conheça nossos cafés, doces e salgados.</p>
-                        <span>Saiba mais →</span>
-                    </div>
-                </a>
+        <section class="menu-section" aria-labelledby="menu-titulo">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Explore o espaço</p>
+                    <h2 id="menu-titulo">Escolha por onde começar</h2>
+                    <p>Quatro páginas curtas: o que a gente serve, quem mora aqui, como a casa começou e quem procura um lar.</p>
+                </div>
 
-                <a href="pages/nossosGatinhos.html" class="menu-card">
-                    <div class="card-image">
-                        <img src="assets/images/cafeteria-com-gatos-cardapio.jpg" alt="Gatinhos do nosso café">
-                    </div>
-                    <div class="card-content">
-                        <h3>Nossos Gatinhos</h3>
-                        <p>Conheça nossos adoráveis moradores.</p>
-                        <span>Saiba mais →</span>
-                    </div>
-                </a>
+                <div class="menu-cards">
+                    <a href="pages/nossoCardapio.html" class="card menu-card">
+                        <div class="card-image">
+                            <img src="assets/images/cardapio/cheesecake.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="card-content">
+                            <h3>Nosso Cardápio</h3>
+                            <p>Cafés, bebidas geladas, doces e salgados preparados por aqui.</p>
+                            <span class="card-link">Saiba mais <span aria-hidden="true">&rarr;</span></span>
+                        </div>
+                    </a>
 
-                <a href="pages/sobreNos.html" class="menu-card">
-                    <div class="card-image">
-                        <img src="assets/images/cafeteria-com-gatos-cardapio.jpg" alt="Cafés e delícias do nosso cardápio">
-                    </div>
-                    <div class="card-content">
-                        <h3>Sobre Nós</h3>
-                        <p>Descubra a nossa história e amor pelos gatinhos.</p>
-                        <span>Saiba mais →</span>
-                    </div>
-                </a>
+                    <a href="pages/nossosGatinhos.html" class="card menu-card">
+                        <div class="card-image">
+                            <img src="assets/images/gatinhos/gato-tricolor.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="card-content">
+                            <h3>Nossos Gatinhos</h3>
+                            <p>Quatro gatos, quatro jeitos de ocupar o mesmo sofá.</p>
+                            <span class="card-link">Saiba mais <span aria-hidden="true">&rarr;</span></span>
+                        </div>
+                    </a>
 
-                <a href="pages/contato.html" class="menu-card">
-                    <div class="card-image">
-                        <img src="assets/images/cafeteria-com-gatos-cardapio.jpg" alt="Cafés e delícias do nosso cardápio">
-                    </div>
-                    <div class="card-content">
-                        <h3>Contato</h3>
-                        <p>Entre em contato e venha nos visitar.</p>
-                        <span>Saiba mais →</span>
-                    </div>
-                </a>
+                    <a href="pages/sobreNos.html" class="card menu-card">
+                        <div class="card-image">
+                            <img src="assets/images/sobre-nos/historia.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="card-content">
+                            <h3>Sobre Nós</h3>
+                            <p>Como a casa começou e por que os gatos vieram antes do balcão.</p>
+                            <span class="card-link">Saiba mais <span aria-hidden="true">&rarr;</span></span>
+                        </div>
+                    </a>
 
-                
-
+                    <a href="pages/adote.html" class="card menu-card">
+                        <div class="card-image">
+                            <img src="assets/images/gatinhos/gato-preto.jpg" alt="" loading="lazy" decoding="async">
+                        </div>
+                        <div class="card-content">
+                            <h3>Adote</h3>
+                            <p>Os quatro moradores estão disponíveis para adoção. Veja quem procura um lar.</p>
+                            <span class="card-link">Saiba mais <span aria-hidden="true">&rarr;</span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        
-        <div class="footer-container">
+    <footer class="site-footer">
+        <div class="container footer-container">
             <div class="footer-brand">
                 <h2>Café com Gatos</h2>
-                <p>
-                    Um lugar onde bons cafés e boas companhias se encontram.
-                </p>
+                <p>Cafeteria com gatos em Gatolândia.</p>
             </div>
-            <div class="footer-links">
+
+            <nav class="footer-links" aria-label="Menu do rodapé">
                 <h3>Menu</h3>
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="pages/nossoCardapio.html">Nosso Cardápio</a></li>
                     <li><a href="pages/nossosGatinhos.html">Nossos Gatinhos</a></li>
+                    <li><a href="pages/adote.html">Adote</a></li>
                     <li><a href="pages/sobreNos.html">Sobre Nós</a></li>
-                    <li><a href="pages/contato.html">Contato</a></li>
                 </ul>
-            </div>
+            </nav>
+
             <div class="footer-info">
-                <h3></h3>
-                <p> 🕒 Segunda a sábado: 10h às 20h</p>
-                <p> 📍 Rua dos Bigodes, 123 - Gatolândia</p>
-                <p> 📷 @cafecomgatos</p>
+                <h3>Informações</h3>
+                <p><span class="footer-info-label">Horário</span>Segunda a sábado, 10h às 20h</p>
+                <p><span class="footer-info-label">Endereço</span>Rua dos Bigodes, 123 — Gatolândia</p>
+                <p>
+                    <span class="footer-info-label">Instagram</span>
+                    <a href="https://instagram.com/cafecomgatos" target="_blank" rel="noopener noreferrer">@cafecomgatos</a>
+                </p>
             </div>
         </div>
-        <div class="footer-bottom">
+
+        <div class="container footer-bottom">
             <p>&copy; 2026 Café com Gatos. Todos os direitos reservados.</p>
-            <p>Feito com ☕ e muito amor pelos gatinhos.</p>
+            <p>Feito com café e um gato no colo.</p>
         </div>
     </footer>
 </body>

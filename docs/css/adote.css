@@ -1,0 +1,329 @@
+/* listagem, filtros, passos e o dialogo de adocao */
+
+.adote-hero {
+    background-image: url("../assets/images/gatinhos/gato-tricolor.jpg");
+}
+
+.adocao-section {
+    padding: var(--esp-9) 0;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--esp-2);
+    margin-bottom: var(--esp-6);
+}
+
+.filtro {
+    padding: 0.55rem 1.15rem;
+    border: 1px solid var(--borda);
+    border-radius: var(--pill);
+    background-color: var(--superficie);
+    color: var(--marrom-escuro);
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background-color var(--transicao),
+        border-color var(--transicao),
+        color var(--transicao);
+}
+
+.filtro:hover {
+    border-color: var(--marrom);
+    color: var(--marrom);
+}
+
+.filtro[aria-pressed="true"] {
+    background-color: var(--marrom);
+    border-color: var(--marrom);
+    color: #fff;
+}
+
+.gatinhos-adocao {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--esp-5);
+}
+
+.adocao-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.adocao-imagem {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--superficie-alt);
+}
+
+.adocao-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+}
+
+.adocao-card:hover .adocao-imagem img {
+    transform: scale(1.06);
+}
+
+.adocao-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--esp-5);
+}
+
+.adocao-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--esp-3);
+    margin-bottom: var(--esp-2);
+}
+
+.adocao-topo h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.adocao-info p {
+    margin-bottom: var(--esp-4);
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+}
+
+.adocao-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--esp-2);
+    margin-bottom: var(--esp-5);
+}
+
+.adocao-tags li {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--borda);
+    border-radius: var(--pill);
+    color: var(--texto-suave);
+    font-size: 0.72rem;
+    font-weight: 500;
+}
+
+.adocao-info .btn {
+    margin-top: auto;
+    width: 100%;
+}
+
+.adocao-vazio {
+    grid-column: 1 / -1;
+    padding: var(--esp-7) var(--esp-5);
+    border: 1px dashed var(--borda);
+    border-radius: var(--raio-grande);
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.como-funciona {
+    padding: var(--esp-9) 0;
+    background-color: var(--superficie-alt);
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--esp-5);
+}
+
+.passo {
+    padding: var(--esp-6);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    background-color: var(--superficie);
+}
+
+.passo-numero {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: var(--esp-4);
+    border-radius: 50%;
+    background-color: var(--superficie-alt);
+    color: var(--marrom);
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.passo h3 {
+    margin-bottom: var(--esp-2);
+    font-size: 1.15rem;
+}
+
+.passo p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+}
+
+.adote-callout {
+    background-image:
+        linear-gradient(rgba(48, 32, 25, 0.8), rgba(48, 32, 25, 0.8)),
+        url("../assets/images/gatinhos/gato-branco.jpg");
+}
+
+.dialogo {
+    width: min(100% - 2rem, 480px);
+    max-height: calc(100vh - 2rem);
+    padding: 0;
+    overflow-y: auto;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    background-color: var(--superficie);
+    color: var(--marrom-escuro);
+    box-shadow: var(--sombra-hover);
+}
+
+.dialogo::backdrop {
+    background-color: rgba(48, 32, 25, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+.dialogo-conteudo {
+    padding: var(--esp-6);
+}
+
+.dialogo-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--esp-4);
+    margin-bottom: var(--esp-2);
+}
+
+.dialogo-header h2 {
+    margin: 0;
+    font-size: 1.45rem;
+}
+
+.dialogo-fechar {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--superficie-alt);
+    color: var(--marrom-escuro);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background-color var(--transicao),
+        color var(--transicao);
+}
+
+.dialogo-fechar:hover {
+    background-color: var(--marrom);
+    color: #fff;
+}
+
+.dialogo-subtitulo {
+    margin-bottom: var(--esp-5);
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+.campo {
+    display: grid;
+    gap: var(--esp-2);
+    margin-bottom: var(--esp-4);
+}
+
+.campo label {
+    color: var(--marrom-escuro);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background-color: var(--fundo);
+    color: var(--marrom-escuro);
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+}
+
+.campo textarea { resize: vertical; }
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--marrom-claro);
+    outline: 2px solid var(--marrom-claro);
+    outline-offset: 1px;
+}
+
+.campo-nota {
+    margin-bottom: var(--esp-4);
+    color: var(--texto-suave);
+    font-size: 0.78rem;
+}
+
+.form-adocao .btn {
+    width: 100%;
+}
+
+.form-sucesso { text-align: center; }
+
+.form-sucesso h3 {
+    margin-bottom: var(--esp-2);
+}
+
+.form-sucesso p {
+    margin-bottom: var(--esp-5);
+    color: var(--texto-suave);
+}
+
+@media (max-width: 1000px) {
+    .gatinhos-adocao,
+    .passos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .adocao-section,
+    .como-funciona {
+        padding: var(--esp-8) 0;
+    }
+
+    .gatinhos-adocao,
+    .passos {
+        grid-template-columns: 1fr;
+    }
+
+    .adocao-info,
+    .passo {
+        padding: var(--esp-4);
+    }
+}
+
+@media (max-width: 420px) {
+    .dialogo-conteudo {
+        padding: var(--esp-5);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adocao-card:hover .adocao-imagem img {
+        transform: none;
+    }
+}
