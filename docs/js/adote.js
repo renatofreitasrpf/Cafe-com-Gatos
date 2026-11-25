@@ -4,7 +4,7 @@
     const GATINHOS = [
         {
             id: 'lindsay',
-            nome: 'Lindsay',
+            nome: 'Lindsay Lohan',
             idade: '4 meses',
             faixa: 'filhote',
             descricao: 'Observa tudo antes de chegar perto. Com paciência, ganha confiança rápido e vira companhia para o dia inteiro.',
@@ -31,7 +31,7 @@
         },
         {
             id: 'angelico',
-            nome: 'Angélico',
+            nome: 'Angélico Ferreira',
             idade: '6 meses',
             faixa: 'filhote',
             descricao: 'Especialista em achar o melhor canto para dormir. Dócil, gosta de colo e de um ambiente calmo para as sonecas.',
